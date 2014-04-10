@@ -39,10 +39,17 @@
           ]
         });
 
+          function reverseText(fragment){
+              var reverse = [];
+              for(var index = 0; index < fragment.length; index++) {
+                  reverse.push(fragment);
+              }
+              return reverse;
+          }
         createExample('Reverse Text', {
           description: 'Create a function that reverses the characters in \
             a string',
-          implementation: null,
+          implementation: reverseText,
           validation: [
             {
               input: 'test value',
@@ -59,6 +66,7 @@
           ]
         });
 
+          
         createExample('Tender Change', {
           description: 'Write a function that given a dollar amount returns \
             the change in bills and coins. For instance, given \
