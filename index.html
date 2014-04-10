@@ -79,11 +79,18 @@
                   pennies:0,
               };
               
+              var temp=0;
+              var temp2=0;
+              
               if(money>=0){
-                  change.fives = (money/5);
+                  change.fives = Math.floor(money/5);
+                  temp = money - (change.fives * 5);
+                  change.ones = Math.floor(temp / 1);
+                  temp2 = Math.floor((temp%1)*100);
+                  change.dimes = Math.floor(temp2/10);
+                  change.pennies = temp2%10;
               }
               return change;
-            
           }; 
           
         createExample('Tender Change', {
@@ -95,7 +102,15 @@
           validation: [
             {
               input: 7.23,
-              output: { fives: 1, ones: 2, dimes: 2, pennies: 5 }
+              output: { fives: 1, ones: 2, dimes: 2, pennies: 3 }
+            },
+            {
+              input: 28.57,
+              output: { fives: 5, ones: 3, dimes: 5, pennies: 7 }
+            },
+            {
+              input: 145.81,
+              output: { fives: 29, ones: 0, dimes: 8, pennies: 1 }
             }
           ]
         });
