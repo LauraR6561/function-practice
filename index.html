@@ -40,12 +40,16 @@
         });
 
           function reverseText(fragment){
-              var reverse = [];
-              for(var index = 0; index < fragment.length; index++) {
-                  reverse.push(fragment);
-              }
-              return reverse;
-          }
+              var reversed = '';
+              if(fragment === null){
+              return null;
+              };
+              for(var index = fragment.length-1; index >= 0; index--) {
+                  reversed += fragment[index];
+              };
+              return reversed;
+          };
+          
         createExample('Reverse Text', {
           description: 'Create a function that reverses the characters in \
             a string',
@@ -66,13 +70,28 @@
           ]
         });
 
+          function tenderChange(money)
+          { 
+              var change = {
+                  fives:0,
+                  ones:0,
+                  dimes:0,
+                  pennies:0,
+              };
+              
+              if(money>=0){
+                  change.fives = (money/5);
+              }
+              return change;
+            
+          }; 
           
         createExample('Tender Change', {
           description: 'Write a function that given a dollar amount returns \
             the change in bills and coins. For instance, given \
             <code>7.23</code> it should return: \
             <pre>{ fives: 1, ones: 2, dimes: 2, pennies: 3 }</pre>',
-          implementation: null,
+          implementation: tenderChange,
           validation: [
             {
               input: 7.23,
